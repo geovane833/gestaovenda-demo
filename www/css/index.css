@@ -192,41 +192,52 @@ swiper {
 
   
 
-  .item-card{
+  .item-card {
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: column;
-    height: 240px;
-    flex: 45%;
-    margin-right: 5px;
-    margin-bottom: 15px;
-  }
+    width: calc(50% - 10px); /* Cada item ocupará metade da largura da tela, com espaçamento */
+    margin: 5px; /* Espaçamento entre os itens */
+    box-sizing: border-box; /* Evita que a margem aumente o tamanho total */
+}
 
-  .img-container{
+.img-container {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 180px;
+    height: 140px; /* Reduzindo um pouco a altura para caber melhor */
     border-radius: 10px;
     background: var(--gelo);
-  }
+}
 
-  .img-container img{
-    max-width: 150px;
+.img-container img {
+    max-width: 100px; /* Ajustando a imagem para caber melhor */
     object-fit: cover;
-  }
+}
 
-  .nome-rating{
+.nome-rating {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
-    margin-left: 10px;
-    max-width: 200px;
+    align-items: center;
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.nome-rating span {
+    flex: 1;
+    min-width: 0;
     text-overflow: ellipsis;
-  }
+    overflow: hidden;
+}
+
+.bold {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+
+
 
   .color-gray{
     color: gray;
@@ -242,7 +253,6 @@ swiper {
 
   .price{
     font-size: 20px;
-	  margin-left: 10px;
   }
 
   .gelo{
