@@ -195,7 +195,7 @@ swiper {
   .item-card {
     display: flex;
     flex-direction: column;
-    width: calc(50% - 10px); /* Cada item ocupará metade da largura da tela, com espaçamento */
+    width: calc(50% - 10px); /* 2 itens por linha no celular */
     margin: 5px; /* Espaçamento entre os itens */
     box-sizing: border-box; /* Evita que a margem aumente o tamanho total */
 }
@@ -216,28 +216,36 @@ swiper {
 }
 
 .nome-rating {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .nome-rating span {
-    flex: 1;
-    min-width: 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
+
+.nome-rating .color-gray {
+  flex-grow: 2; /* Faz o nome ocupar mais espaço */
+}
+
+.nome-rating .bold {
+  flex-grow: 0;
+  text-align: right;
+  min-width: 50px; /* Garante que o rating fique compacto */
+}
+
 
 .bold {
     text-align: right;
     flex-shrink: 0;
 }
-
-
-
 
   .color-gray{
     color: gray;
@@ -259,14 +267,23 @@ swiper {
     background: var(--gelo) !important;
   }
 
-  @media(min-width: 992px){
-    .item-card{
-      flex: 30%;
-    }
+/* Para tablets - 3 itens por linha */
+@media (min-width: 768px) {
+  .item-card {
+      width: calc(33.33% - 10px);
   }
+}
 
-  @media(min-width: 1200px){
-    .item-card{
-      flex: 20%;
-    }
+/* Para PCs - 4 itens por linha */
+@media (min-width: 1024px) {
+  .item-card {
+      width: calc(25% - 10px);
   }
+}
+
+/* Para garantir que os itens se organizem corretamente */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
